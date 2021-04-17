@@ -49,10 +49,14 @@ def delete_command():
     print("Trying to delete")
 
 
-#def update_command():
+def update_command():
+    backend.update(selected_tuple[0],title_text.get(),author_text.get(),year_text.get(),isbn_text.get())
+    print("trying to update")
 
 
 window = Tk()
+
+window.wm_title("BookStore")
 
 l1 = Label(window,text="Title")
 l1.grid(row=0,column=0)
@@ -103,13 +107,13 @@ b2.grid(row=3,column=3)
 b3=Button(window,text="Add entry", width=12, command=add_command)
 b3.grid(row=4,column=3)
 
-b4=Button(window,text="Update selected", width=12)
+b4=Button(window,text="Update selected", width=12, command=update_command)
 b4.grid(row=5,column=3)
 
 b5=Button(window,text="Delete Selected", width=12, command=delete_command)
 b5.grid(row=6,column=3)
 
-b6=Button(window,text="Close", width=12)
+b6=Button(window,text="Close", width=12,command=window.destroy)
 b6.grid(row=7,column=3)
 
 
